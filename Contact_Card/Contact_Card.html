@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Contact Card</title>
+    <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.submit').click(function(){
+          console.log("clicked on submit")
+          var firstname = $('.firstname').val();
+          var lastname = $('.lastname').val();
+          var desc = $('.textarea').val();
+          $('.contactcardcolumn').append('<div class="contactcard"><h3>'+firstname+' '+lastname+'</h3><h5 class="show">Click for description!</h5><h5 class = "hide">'+desc+'</h5></div>');
+          return false;
+        });
+          $(document).on('click', '.contactcard', function(){
+            $(this).children('h5').toggle();
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <form class="add" action="index.html" method="post">
+      <p>First name: <input type="text" class = "firstname"></p>
+      <p>Last name: <input type="text" class = "lastname"></p>
+      <h4>Description</h4>
+      <textarea class="textarea" rows="8" cols="40"></textarea>
+      <input type="submit" class="submit" value="Add User">
+    </form>
+    <div class='contactcardcolumn'>
+    </div>
+  </body>
+</html>
